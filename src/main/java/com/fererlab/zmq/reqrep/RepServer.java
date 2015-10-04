@@ -11,7 +11,7 @@ public class RepServer implements Runnable {
     @Override
     public void run() {
 
-        // sleep 2 seconds, let the client start ahead
+        // sleep 2 seconds, let the client start first
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -20,11 +20,11 @@ public class RepServer implements Runnable {
 
         // zmq context
         ZMQ.Context context = ZMQ.context(1);
-        L.info("created context");
+        L.info("context created");
 
         // socket to talk to client
         ZMQ.Socket responder = context.socket(ZMQ.REP);
-        L.info("created socket");
+        L.info("socket created");
 
         // bind the socket
         responder.bind("tcp://*:5555");

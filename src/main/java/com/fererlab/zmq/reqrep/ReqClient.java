@@ -12,11 +12,11 @@ public class ReqClient implements Runnable {
     public void run() {
         // create context
         ZMQ.Context context = ZMQ.context(1);
-        L.info("created context");
+        L.info("context created");
 
         // socket to talk to server
         ZMQ.Socket requester = context.socket(ZMQ.REQ);
-        L.info("created socket");
+        L.info("socket created");
 
         // connect to socket
         requester.connect("tcp://localhost:5555");
