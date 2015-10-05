@@ -1,5 +1,6 @@
 package com.fererlab.zmq;
 
+import com.fererlab.zmq.parallelpipeline.ParallelPipelineSample;
 import com.fererlab.zmq.pubsub.PubSubSample;
 import com.fererlab.zmq.reqrep.ReqRepSample;
 
@@ -17,7 +18,8 @@ public class RunSamples {
 
     private void start() {
         //runZmqReqRes();
-        runZmqPubSub();
+        //runZmqPubSub();
+        runZmqParallelPipeline();
     }
 
     private void runZmqReqRes() {
@@ -28,6 +30,11 @@ public class RunSamples {
     private void runZmqPubSub() {
         PubSubSample pubSubSample = new PubSubSample();
         executorService.execute(pubSubSample);
+    }
+
+    private void runZmqParallelPipeline() {
+        ParallelPipelineSample parallelPipelineSample = new ParallelPipelineSample();
+        executorService.execute(parallelPipelineSample);
     }
 
 }
